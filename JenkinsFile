@@ -1,0 +1,30 @@
+pipeline {
+    agent any
+
+    stages {
+
+        stage('Clone Code from Git') {
+            steps {
+                git branch: 'main', url: 'https://github.com/yourname/your-repo.git'
+            }
+        }
+
+        stage('Install Dependencies') {
+            steps {
+                sh 'pip install selenium'
+            }
+        }
+
+        stage('Run Selenium Test') {
+            steps {
+                sh 'python3 selenium_test.py'
+            }
+        }
+    }
+
+    post {
+        always {
+            echo "Pipeline completed."
+        }
+    }
+}
