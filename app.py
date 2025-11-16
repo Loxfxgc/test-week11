@@ -10,9 +10,7 @@ driver = webdriver.Chrome()
 file_path = "file://" + os.path.abspath("sum.html")
 driver.get(file_path)
 
-time.sleep(2)   # give the browser time to load
-
-# Get the displayed text
+time.sleep(2)   
 result_text = driver.find_element(By.ID, "result").text
 print("Displayed Result:", result_text)
 
